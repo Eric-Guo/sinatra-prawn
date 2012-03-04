@@ -36,7 +36,7 @@ module Tilt
      end
 
     def evaluate(scope, locals, &block)
-      pdf = ::Prawn::Document.new
+      pdf = ::Prawn::Document.new settings.prawn
       if data.respond_to?(:to_str)
         locals[:pdf] = pdf
         super(scope, locals, &block)
