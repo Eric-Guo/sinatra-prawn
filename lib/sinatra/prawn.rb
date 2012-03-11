@@ -36,7 +36,7 @@ module Tilt
      end
 
     def evaluate(scope, locals, &block)
-      prawn_settings ||= {}
+      prawn_settings = settings.prawn || {}
       pdf = ::Prawn::Document.new prawn_settings
       if data.respond_to?(:to_str)
         locals[:pdf] = pdf
